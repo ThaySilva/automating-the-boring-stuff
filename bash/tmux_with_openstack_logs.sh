@@ -7,6 +7,7 @@ session_name=os_logs
 mapfile -t os_services < <(systemctl list-units --full --all | grep "devstack@")
 
 # Start a tmux session and window 0 with the logs of the first service on the list
+cd $HOME
 tmux new-session -d -s "$session_name" -n "$(echo ${os_services[0]##* Devstack} | sed -e 's/[[:space:]]*$//' | grep -oP '(?<=devstack@).*?(?=.service)')"
 tmux send-keys -t "$session_name:0" C-z "sudo journalctl -fu $(echo ${os_services[0]##* Devstack} | sed -e 's/[[:space:]]*$//')" Enter
 
