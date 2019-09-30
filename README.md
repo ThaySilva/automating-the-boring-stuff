@@ -9,11 +9,11 @@
 
 ## Bash scripts
 ### Remove trailing spaces
-This script removes all trailing white spaces at the end of lines, and blank lines at the end of the file. 
+This script removes all trailing white spaces at the end of lines, and blank lines at the end of the file. When executing this script you can pass in a file or a directory, the script will loop through the directory and look for files with .py or .sh extensions.
 
 Usage:
 ```
-bash remove_trailing_spaces.sh <FILE-NAME>
+bash remove_trailing_spaces.sh <FILE/DIR-NAME>
 ```
 ### Tmux with OpenStack logs
 This script creates a tmux session with an OpenStack service logs per window.

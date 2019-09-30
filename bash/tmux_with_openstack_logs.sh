@@ -17,3 +17,5 @@ do
     tmux new-window -t "$session_name:$i" -n "$(echo ${os_services[i]##* Devstack} | sed -e 's/[[:space:]]*$//' | grep -oP '(?<=devstack@).*?(?=.service)')"
     tmux send-keys -t "$session_name:$i" C-z "sudo journalctl -fu $(echo ${os_services[i]##* Devstack} | sed -e 's/[[:space:]]*$//')" Enter
 done
+
+echo "Tmux session created, access it by executing: tmux a -t os_logs"
